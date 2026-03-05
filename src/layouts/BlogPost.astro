@@ -1,0 +1,129 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  date: Date;
+}
+
+const { title, description, date } = Astro.props;
+---
+
+<BaseLayout title={`${title} - Dear Hui`} description={description}>
+    <div class="blog-post">
+        <header>
+            <a href="/blog" class="back-link">&larr; 返回文章列表</a>
+            <h1>{title}</h1>
+            <time datetime={date.toISOString()}>
+                {date.toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </time>
+        </header>
+        <article class="prose">
+            <slot />
+        </article>
+    </div>
+</BaseLayout>
+
+<style>
+    .blog-post {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+    }
+
+    header {
+        margin-bottom: 2rem;
+    }
+
+    .back-link {
+        color: #667eea;
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+
+    .back-link:hover {
+        text-decoration: underline;
+    }
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 800;
+        margin: 1rem 0 0.5rem;
+        color: #1e293b;
+    }
+
+    time {
+        color: #64748b;
+        font-size: 0.9rem;
+    }
+
+    .prose {
+        line-height: 1.8;
+        font-size: 1.05rem;
+    }
+
+    .prose :global(h2) {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 2rem 0 1rem;
+    }
+
+    .prose :global(h3) {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 1.5rem 0 0.75rem;
+    }
+
+    .prose :global(p) {
+        margin-bottom: 1.25rem;
+        color: #334155;
+    }
+
+    .prose :global(a) {
+        color: #667eea;
+    }
+
+    .prose :global(code) {
+        background: #f1f5f9;
+        padding: 0.15rem 0.4rem;
+        border-radius: 4px;
+        font-size: 0.9em;
+    }
+
+    .prose :global(pre) {
+        background: #1e293b;
+        color: #e2e8f0;
+        padding: 1.25rem;
+        border-radius: 8px;
+        overflow-x: auto;
+        margin-bottom: 1.25rem;
+    }
+
+    .prose :global(pre code) {
+        background: none;
+        padding: 0;
+    }
+
+    .prose :global(img) {
+        max-width: 100%;
+        border-radius: 8px;
+    }
+
+    .prose :global(blockquote) {
+        border-left: 3px solid #667eea;
+        padding-left: 1rem;
+        margin: 1.25rem 0;
+        color: #64748b;
+    }
+
+    .prose :global(ul), .prose :global(ol) {
+        margin-bottom: 1.25rem;
+        padding-left: 1.5rem;
+    }
+
+    .prose :global(li) {
+        margin-bottom: 0.5rem;
+        color: #334155;
+    }
+</style>
