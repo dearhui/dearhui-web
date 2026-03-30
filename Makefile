@@ -1,10 +1,21 @@
-.PHONY: dev build preview
+.PHONY: dev-main dev-clinic dev-trashtruck build-main build-clinic build-trashtruck build-all
 
-dev:
-	npm run dev
+dev-main:
+	cd sites/main && npm run dev
 
-build:
-	npm run build
+dev-clinic:
+	cd sites/clinic && npm run dev
 
-preview:
-	npm run preview
+dev-trashtruck:
+	cd sites/trashtruck && npm run dev
+
+build-main:
+	cd sites/main && npm run build
+
+build-clinic:
+	cd sites/clinic && npm run build
+
+build-trashtruck:
+	cd sites/trashtruck && npm run build
+
+build-all: build-main build-clinic build-trashtruck
