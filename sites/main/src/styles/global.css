@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #007AFF;
+    --color-primary-dark: #0A84FF;
+    --font-sans: "SF Pro Display", "Helvetica Neue", "Noto Sans TC", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+}

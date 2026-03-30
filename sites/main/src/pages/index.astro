@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const apps = [
+    {
+        name: "看診進度助手",
+        nameEn: "Clinic Progress",
+        description: "台大醫院門診看診進度即時查詢",
+        url: "https://clinic.dearhui.com",
+        color: "bg-blue-50 dark:bg-blue-950/30",
+        borderColor: "border-blue-200 dark:border-blue-800",
+    },
+    {
+        name: "台灣垃圾通",
+        nameEn: "Taiwan Trash Truck",
+        description: "即時垃圾車追蹤，不再錯過垃圾車",
+        url: "https://trashtruck.dearhui.com",
+        color: "bg-green-50 dark:bg-green-950/30",
+        borderColor: "border-green-200 dark:border-green-800",
+    },
+];
+---
+
+<BaseLayout title="Dear Hui Studio" description="Dear Hui Studio Apps">
+    <div class="py-8 text-center">
+        <h1 class="mb-2 text-3xl font-bold">Dear Hui Studio</h1>
+        <p class="text-gray-500 dark:text-gray-400">iOS Apps</p>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2">
+        {
+            apps.map((app) => (
+                <a
+                    href={app.url}
+                    class={`block rounded-xl border p-6 transition-shadow hover:shadow-md ${app.color} ${app.borderColor} no-underline`}
+                >
+                    <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
+                        {app.name}
+                    </h2>
+                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                        {app.nameEn}
+                    </p>
+                    <p class="mt-3 text-gray-700 dark:text-gray-300">
+                        {app.description}
+                    </p>
+                </a>
+            ))
+        }
+    </div>
+</BaseLayout>
