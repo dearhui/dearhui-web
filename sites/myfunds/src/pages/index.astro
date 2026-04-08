@@ -2,24 +2,6 @@
 const appName = "基金看板";
 const year = new Date().getFullYear();
 const appStoreUrl = "https://apps.apple.com/tw/app/id600411407";
-
-const features = [
-    {
-        icon: "📊",
-        title: "直觀圖表分析",
-        description: "清晰易懂的視覺化工具，理解基金歷史表現與市場趨勢。",
-    },
-    {
-        icon: "📋",
-        title: "實時觀察列表",
-        description: "支援基金排序、追蹤與自訂名稱，打造個人化投資組合。",
-    },
-    {
-        icon: "🔎",
-        title: "快速尋找基金",
-        description: "關鍵字搜尋與基金公司篩選，快速找到目標基金。",
-    },
-];
 ---
 
 <!doctype html>
@@ -28,7 +10,7 @@ const features = [
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{appName} — 讓理財變得輕鬆易懂</title>
-        <meta name="description" content="最佳智慧理財助手，輕鬆投資基金。" />
+        <meta name="description" content="最佳智慧理財助手，輕鬆追蹤與分析基金投資。" />
         <meta property="og:title" content={`${appName} — 讓理財變得輕鬆易懂`} />
         <meta property="og:description" content="最佳智慧理財助手，輕鬆投資基金" />
         <meta property="og:url" content="https://myfunds.dearhui.com" />
@@ -37,77 +19,104 @@ const features = [
             @import "../styles/global.css";
         </style>
     </head>
-    <body class="min-h-screen bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100">
+    <body class="min-h-screen bg-white text-gray-900">
         <!-- Nav -->
-        <nav class="sticky top-0 z-50 border-b border-gray-200/50 bg-white/80 backdrop-blur-md dark:border-gray-800/50 dark:bg-gray-950/80">
-            <div class="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
-                <a href="/" class="text-lg font-semibold text-gray-900 no-underline dark:text-white">
+        <nav class="sticky top-0 z-50 border-b border-gray-200/60 bg-white/80 backdrop-blur-xl">
+            <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+                <a href="/" class="text-lg font-semibold text-gray-900 no-underline">
                     {appName}
                 </a>
                 <a
                     href={appStoreUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="rounded-full bg-amber-500 px-4 py-2 text-sm font-medium text-white no-underline transition hover:bg-amber-600"
+                    class="rounded-full bg-gray-900 px-5 py-2 text-sm font-medium text-white no-underline transition hover:bg-gray-800"
                 >
-                    App Store 下載
+                    下載 App
                 </a>
             </div>
         </nav>
 
         <!-- Hero -->
-        <section class="relative overflow-hidden bg-gradient-to-br from-amber-500 to-orange-600 px-6 py-24 text-center text-white">
-            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.15),transparent_70%)]"></div>
-            <div class="relative mx-auto max-w-3xl">
-                <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">
-                    讓理財變得輕鬆易懂
-                </h1>
-                <p class="mx-auto mt-4 max-w-xl text-lg text-amber-100">
-                    最佳智慧理財助手，輕鬆追蹤與分析基金投資。
-                </p>
-                <div class="mt-8">
-                    <a
-                        href={appStoreUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-base font-semibold text-amber-600 no-underline shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
-                    >
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                        </svg>
-                        App Store 下載
-                    </a>
+        <section class="overflow-hidden px-6 pb-16 pt-20 sm:pb-24 sm:pt-28">
+            <div class="mx-auto flex max-w-5xl flex-col items-center gap-12 lg:flex-row lg:gap-16">
+                <div class="flex-1 text-center lg:text-left">
+                    <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
+                        讓理財<br />變得<span class="text-amber-500">輕鬆易懂</span>
+                    </h1>
+                    <p class="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-gray-500 lg:mx-0">
+                        最佳智慧理財助手，輕鬆追蹤與分析基金投資，打造專屬投資組合。
+                    </p>
+                    <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
+                        <a
+                            href={appStoreUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 rounded-full bg-gray-900 px-7 py-3.5 text-base font-semibold text-white no-underline shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
+                        >
+                            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                            </svg>
+                            App Store 下載
+                        </a>
+                        <span class="text-sm text-gray-400">iOS 15.0 以上</span>
+                    </div>
+                </div>
+                <div class="flex flex-shrink-0 justify-center">
+                    <div class="iphone-mockup">
+                        <img src="/screenshots/list.png" alt="基金看板 App 畫面" />
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Features -->
-        <section class="px-6 py-20">
-            <div class="mx-auto max-w-4xl">
-                <h2 class="mb-12 text-center text-2xl font-bold sm:text-3xl">功能特色</h2>
-                <div class="grid gap-6 sm:grid-cols-3">
-                    {features.map((feature) => (
-                        <div class="rounded-2xl border border-gray-200 bg-gray-50 p-6 transition hover:shadow-md dark:border-gray-800 dark:bg-gray-900">
-                            <div class="mb-3 text-3xl">{feature.icon}</div>
-                            <h3 class="mb-2 text-lg font-semibold">{feature.title}</h3>
-                            <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400">{feature.description}</p>
-                        </div>
-                    ))}
+        <!-- Feature 1 -->
+        <section class="bg-gray-50 px-6 py-24 sm:py-32">
+            <div class="animate-on-scroll mx-auto flex max-w-5xl flex-col items-center gap-12 lg:flex-row lg:gap-16">
+                <div class="flex-1 text-center lg:text-left">
+                    <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-2xl">📋</div>
+                    <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">實時觀察列表</h2>
+                    <p class="mt-4 text-lg leading-relaxed text-gray-500">
+                        支援基金排序、追蹤與自訂名稱，打造個人化投資組合。隨時掌握基金即時淨值與漲跌幅。
+                    </p>
+                </div>
+                <div class="flex flex-shrink-0 justify-center">
+                    <div class="iphone-mockup">
+                        <img src="/screenshots/home.png" alt="觀察列表畫面" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature 2 -->
+        <section class="px-6 py-24 sm:py-32">
+            <div class="animate-on-scroll mx-auto flex max-w-5xl flex-col items-center gap-12 lg:flex-row lg:gap-16">
+                <div class="flex flex-shrink-0 justify-center lg:order-1">
+                    <div class="iphone-mockup-wide">
+                        <img src="/screenshots/widget.jpeg" alt="桌面小工具" class="rounded-3xl shadow-2xl" />
+                    </div>
+                </div>
+                <div class="flex-1 text-center lg:order-2 lg:text-left">
+                    <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-2xl">📱</div>
+                    <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">桌面小工具</h2>
+                    <p class="mt-4 text-lg leading-relaxed text-gray-500">
+                        在主畫面即時查看基金淨值，不需開啟 App 就能快速掌握投資動態。
+                    </p>
                 </div>
             </div>
         </section>
 
         <!-- CTA -->
-        <section class="border-t border-gray-200 bg-gray-50 px-6 py-16 text-center dark:border-gray-800 dark:bg-gray-900">
-            <div class="mx-auto max-w-2xl">
-                <h2 class="text-2xl font-bold">立即下載</h2>
-                <p class="mt-2 text-gray-600 dark:text-gray-400">支援 iOS 15.0 以上</p>
-                <div class="mt-6">
+        <section class="px-6 py-24 text-center sm:py-32">
+            <div class="animate-on-scroll mx-auto max-w-2xl">
+                <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">開始你的智慧理財</h2>
+                <p class="mt-4 text-lg text-gray-500">免費下載，立即體驗。</p>
+                <div class="mt-8">
                     <a
                         href={appStoreUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="inline-flex items-center gap-2 rounded-full bg-amber-500 px-6 py-3 text-base font-semibold text-white no-underline transition hover:bg-amber-600"
+                        class="inline-flex items-center gap-2 rounded-full bg-amber-500 px-7 py-3.5 text-base font-semibold text-white no-underline shadow-lg transition hover:-translate-y-0.5 hover:bg-amber-600 hover:shadow-xl"
                     >
                         <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
@@ -119,21 +128,27 @@ const features = [
         </section>
 
         <!-- Footer -->
-        <footer class="border-t border-gray-200 dark:border-gray-800">
-            <div class="mx-auto max-w-4xl px-6 py-6 text-center text-sm text-gray-500 dark:text-gray-400">
-                <div class="mb-2 flex justify-center gap-4">
-                    <a href="/privacy" class="hover:text-gray-700 dark:hover:text-gray-200">隱私權政策</a>
+        <footer class="border-t border-gray-200">
+            <div class="mx-auto max-w-5xl px-6 py-8 text-center text-sm text-gray-400">
+                <div class="mb-3 flex justify-center gap-6">
+                    <a href="/privacy" class="transition hover:text-gray-600">隱私權政策</a>
                 </div>
                 <p>&copy; {year} dearhui studio</p>
                 <p class="mt-1">
-                    <a
-                        href="mailto:dearhui.studio@gmail.com"
-                        class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
-                    >
+                    <a href="mailto:dearhui.studio@gmail.com" class="transition hover:text-gray-600">
                         dearhui.studio@gmail.com
                     </a>
                 </p>
             </div>
         </footer>
+
+        <script>
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((e) => {
+                    if (e.isIntersecting) e.target.classList.add("visible");
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll(".animate-on-scroll").forEach((el) => observer.observe(el));
+        </script>
     </body>
 </html>
