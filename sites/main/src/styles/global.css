@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-    --color-primary: #007AFF;
-    --color-primary-dark: #0A84FF;
+    --color-primary: #4F46E5;
+    --color-primary-dark: #6366F1;
     --font-sans: "SF Pro Display", "Helvetica Neue", "Noto Sans TC", sans-serif;
 }
 
@@ -12,4 +12,20 @@ html {
 
 body {
     font-family: var(--font-sans);
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #60A5FA, #6366F1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@media (prefers-color-scheme: dark) {
+    .text-gradient {
+        background: linear-gradient(135deg, #93C5FD, #818CF8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
 }
