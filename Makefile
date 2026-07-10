@@ -1,4 +1,4 @@
-.PHONY: dev-main dev-clinic dev-trashtruck dev-myfunds build-main build-clinic build-trashtruck build-myfunds build-all
+.PHONY: dev-main dev-clinic dev-trashtruck dev-myfunds dev-twetf build-main build-clinic build-trashtruck build-myfunds build-twetf build-all deploy-twetf
 
 dev-main:
 	cd sites/main && npm run dev
@@ -12,6 +12,9 @@ dev-trashtruck:
 dev-myfunds:
 	cd sites/myfunds && npm run dev
 
+dev-twetf:
+	cd sites/twetf && npm run dev
+
 build-main:
 	cd sites/main && npm run build
 
@@ -24,4 +27,11 @@ build-trashtruck:
 build-myfunds:
 	cd sites/myfunds && npm run build
 
-build-all: build-main build-clinic build-trashtruck build-myfunds
+build-twetf:
+	cd sites/twetf && npm run build
+
+build-all: build-main build-clinic build-trashtruck build-myfunds build-twetf
+
+# twetf 是 direct-upload 專案（其他站為 git-integrated），發布用這個
+deploy-twetf: build-twetf
+	npx wrangler pages deploy sites/twetf/dist --project-name dearhui-twetf --branch main --commit-dirty=true
