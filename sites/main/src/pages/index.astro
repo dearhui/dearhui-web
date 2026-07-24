@@ -3,6 +3,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const apps = [
     {
+        name: "台股ETF",
+        nameEn: "TW ETF",
+        description: "主動式 ETF 換股雷達，每個交易日自動比對持股異動；折溢價總覽、配息日曆、庫存管理。",
+        url: "https://twetf.dearhui.com",
+        screenshot: "/screenshots/twetf.jpg",
+        color: "text-teal-600",
+        bg: "bg-teal-50",
+        btnBg: "bg-teal-600 hover:bg-teal-700",
+        badge: "即將上架",
+    },
+    {
         name: "看診進度助手",
         nameEn: "Clinic Progress",
         description: "門診看診進度即時查詢，搭配鎖定畫面小工具，隨時掌握叫號。",
@@ -27,11 +38,10 @@ const apps = [
         nameEn: "Taiwan Trash Truck",
         description: "即時垃圾車追蹤，在地圖上查看垃圾車位置，不再錯過垃圾車。",
         url: "https://trashtruck.dearhui.com",
-        screenshot: null,
+        screenshot: "/screenshots/trashtruck.jpg",
         color: "text-emerald-500",
         bg: "bg-emerald-50",
         btnBg: "bg-emerald-500 hover:bg-emerald-600",
-        comingSoon: true,
     },
 ];
 
@@ -88,16 +98,13 @@ const skills = [
             <!-- Hero Mockups -->
             <div class="mt-16 flex items-end justify-center gap-4 sm:gap-6 lg:gap-8">
                 <div class="iphone-mockup-sm hidden -rotate-6 sm:block">
-                    <img src="/screenshots/myfunds.png" alt="基金看板" />
-                </div>
-                <div class="iphone-mockup-md">
                     <img src="/screenshots/clinic.png" alt="看診進度助手" />
                 </div>
+                <div class="iphone-mockup-md">
+                    <img src="/screenshots/twetf.jpg" alt="台股ETF" />
+                </div>
                 <div class="iphone-mockup-sm hidden rotate-6 sm:block">
-                    <div class="flex h-full flex-col items-center justify-center bg-gradient-to-b from-emerald-50 to-emerald-100 p-4 text-center">
-                        <span class="text-4xl">🚛</span>
-                        <p class="mt-2 text-xs font-medium text-emerald-600">即將推出</p>
-                    </div>
+                    <img src="/screenshots/trashtruck.jpg" alt="台灣垃圾通" />
                 </div>
             </div>
         </div>
@@ -119,39 +126,31 @@ const skills = [
                     >
                         {/* Screenshot */}
                         <div class={`flex flex-shrink-0 justify-center ${i % 2 === 1 ? 'lg:order-2' : ''}`}>
-                            {app.screenshot ? (
-                                <div class="iphone-mockup-card">
-                                    <img src={app.screenshot} alt={app.name} />
-                                </div>
-                            ) : (
-                                <div class="iphone-mockup-card bg-gradient-to-b from-emerald-50 to-emerald-100">
-                                    <div class="flex h-full flex-col items-center justify-center p-6 text-center">
-                                        <span class="text-5xl">🚛</span>
-                                        <p class="mt-3 text-sm font-semibold text-emerald-700">即將推出</p>
-                                    </div>
-                                </div>
-                            )}
+                            <div class="iphone-mockup-card">
+                                <img src={app.screenshot} alt={app.name} />
+                            </div>
                         </div>
                         {/* Text */}
                         <div class={`flex-1 text-center lg:text-left ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
                             <span class={`text-sm font-medium ${app.color}`}>{app.nameEn}</span>
-                            <h3 class="mt-1 text-2xl font-bold text-gray-900 sm:text-3xl">{app.name}</h3>
+                            <h3 class="mt-1 text-2xl font-bold text-gray-900 sm:text-3xl">
+                                {app.name}
+                                {app.badge && (
+                                    <span class={`ml-2 inline-block translate-y-[-2px] rounded-full ${app.bg} px-3 py-1 align-middle text-xs font-medium ${app.color}`}>
+                                        {app.badge}
+                                    </span>
+                                )}
+                            </h3>
                             <p class="mt-3 text-base leading-relaxed text-gray-500">
                                 {app.description}
                             </p>
                             <div class="mt-5">
-                                {app.comingSoon ? (
-                                    <span class="inline-flex items-center rounded-full bg-gray-100 px-5 py-2.5 text-sm font-medium text-gray-500">
-                                        敬請期待
-                                    </span>
-                                ) : (
-                                    <span class={`inline-flex items-center gap-1 rounded-full ${app.btnBg} px-5 py-2.5 text-sm font-medium text-white transition group-hover:shadow-md`}>
-                                        前往網站
-                                        <svg class="h-4 w-4 transition group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                                        </svg>
-                                    </span>
-                                )}
+                                <span class={`inline-flex items-center gap-1 rounded-full ${app.btnBg} px-5 py-2.5 text-sm font-medium text-white transition group-hover:shadow-md`}>
+                                    前往網站
+                                    <svg class="h-4 w-4 transition group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                                    </svg>
+                                </span>
                             </div>
                         </div>
                     </a>
